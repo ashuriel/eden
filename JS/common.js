@@ -169,6 +169,15 @@ function initializePage() {
     } else if (currentPage === 'ruin2.html') {
         // 废墟2页面 - 添加废墟2页面类
         document.body.classList.add('ruin2-page');
+    } else if (currentPage === 'temple.html') {
+        // 亭页面 - 添加亭页面类并创建shining.gif漂浮元素
+        document.body.classList.add('temple-page');
+        createTempleShining();
+    } else if (currentPage === 'nightSky.html') {
+        // 夜空页面 - 添加夜空页面类并创建shining.gif和shining2.gif漂浮元素
+        document.body.classList.add('night-sky-page');
+        createNightSkyShining();
+        createNightSkyShining2();
     }
     // 其他页面不需要特殊动画
 }
@@ -333,6 +342,117 @@ function createOceanChar(container, chars, size) {
     char.style.setProperty('--drift-x', driftX);
     
     container.appendChild(char);
+}
+
+// ========== 亭页面shining.gif漂浮元素 ==========
+function createTempleShining() {
+    console.log('Creating temple shining elements...'); // 调试信息
+    const count = 120; // 增加数量到120个shining.gif元素
+    
+    for (let i = 0; i < count; i++) {
+        const shining = document.createElement('div');
+        shining.className = 'temple-shining';
+        
+        // 直接设置背景图片
+        shining.style.backgroundImage = "url('shining.gif')";
+        shining.style.backgroundSize = "contain";
+        shining.style.backgroundRepeat = "no-repeat";
+        shining.style.backgroundPosition = "center";
+        
+        // 随机位置
+        shining.style.left = Math.random() * 100 + '%';
+        shining.style.top = Math.random() * 100 + '%';
+        
+        // 随机大小变化
+        const size = 10 + Math.random() * 30; // 10-40px
+        shining.style.width = size + 'px';
+        shining.style.height = size + 'px';
+        
+        // 随机动画延迟
+        shining.style.animationDelay = Math.random() * 8 + 's';
+        
+        // 随机动画持续时间
+        const duration = 6 + Math.random() * 4; // 6-10秒
+        shining.style.animationDuration = duration + 's';
+        
+        document.body.appendChild(shining);
+        console.log('Added shining element', i + 1); // 调试信息
+    }
+    console.log('Temple shining elements created:', count); // 调试信息
+}
+
+// ========== 夜空页面shining.gif漂浮元素 ==========
+function createNightSkyShining() {
+    console.log('Creating night sky shining elements...'); // 调试信息
+    const count = 300; // 300个shining.gif元素
+    
+    for (let i = 0; i < count; i++) {
+        const shining = document.createElement('div');
+        shining.className = 'night-sky-shining';
+        
+        // 直接设置背景图片
+        shining.style.backgroundImage = "url('shining.gif')";
+        shining.style.backgroundSize = "contain";
+        shining.style.backgroundRepeat = "no-repeat";
+        shining.style.backgroundPosition = "center";
+        
+        // 随机位置
+        shining.style.left = Math.random() * 100 + '%';
+        shining.style.top = Math.random() * 100 + '%';
+        
+        // 随机大小变化
+        const size = 8 + Math.random() * 32; // 8-40px
+        shining.style.width = size + 'px';
+        shining.style.height = size + 'px';
+        
+        // 随机动画延迟
+        shining.style.animationDelay = Math.random() * 20 + 's';
+        
+        // 极慢的动画持续时间
+        const duration = 15 + Math.random() * 10; // 15-25秒
+        shining.style.animationDuration = duration + 's';
+        
+        document.body.appendChild(shining);
+        console.log('Added night sky shining element', i + 1); // 调试信息
+    }
+    console.log('Night sky shining elements created:', count); // 调试信息
+}
+
+// ========== 夜空页面shining2.gif漂浮元素 ==========
+function createNightSkyShining2() {
+    console.log('Creating night sky shining2 elements...'); // 调试信息
+    const count = 300; // 300个shining2.gif元素
+    
+    for (let i = 0; i < count; i++) {
+        const shining = document.createElement('div');
+        shining.className = 'night-sky-shining2';
+        
+        // 直接设置背景图片
+        shining.style.backgroundImage = "url('shining2.gif')";
+        shining.style.backgroundSize = "contain";
+        shining.style.backgroundRepeat = "no-repeat";
+        shining.style.backgroundPosition = "center";
+        
+        // 随机位置
+        shining.style.left = Math.random() * 100 + '%';
+        shining.style.top = Math.random() * 100 + '%';
+        
+        // 随机大小变化
+        const size = 8 + Math.random() * 32; // 8-40px
+        shining.style.width = size + 'px';
+        shining.style.height = size + 'px';
+        
+        // 随机动画延迟
+        shining.style.animationDelay = Math.random() * 20 + 's';
+        
+        // 极慢的动画持续时间
+        const duration = 15 + Math.random() * 10; // 15-25秒
+        shining.style.animationDuration = duration + 's';
+        
+        document.body.appendChild(shining);
+        console.log('Added night sky shining2 element', i + 1); // 调试信息
+    }
+    console.log('Night sky shining2 elements created:', count); // 调试信息
 }
 
 // 页面加载完成后初始化

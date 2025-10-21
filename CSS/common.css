@@ -9,6 +9,11 @@ html, body {
     height: 100%;
 }
 
+/* 确保文本元素可以被翻译 */
+h1, h2, h3, h4, h5, h6, p, div, span, a {
+    pointer-events: auto;
+}
+
 /* 内容容器样式 */
 .content {
     position: relative;
@@ -17,6 +22,7 @@ html, body {
     margin: 0 auto;
     padding: 80px 20px;
     text-align: center;
+    pointer-events: auto;
 }
 
 /* 标题样式 */
@@ -684,4 +690,166 @@ li {
     0% { opacity: 0.1; }
     50% { opacity: 0.3; }
     100% { opacity: 0.1; }
+}
+
+/* ========== 亭页面特殊样式 ========== */
+/* 亭页面四个边框光辉效果 */
+.temple-page::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, rgba(255,255,255,0.15) 0%, transparent 3%, transparent 97%, rgba(255,255,255,0.15) 100%),
+        linear-gradient(0deg, rgba(255,255,255,0.15) 0%, transparent 3%, transparent 97%, rgba(255,255,255,0.15) 100%);
+    z-index: 0;
+    pointer-events: none;
+    animation: temple-border-glow 4s ease-in-out infinite;
+}
+
+/* 亭页面特殊样式 */
+.temple-page h1,
+.temple-page a,
+.temple-page hr {
+    color: rgb(199, 228, 242);
+}
+
+.temple-page hr {
+    background: linear-gradient(90deg, transparent, rgb(199, 228, 242), transparent);
+}
+
+.temple-page .description {
+    margin: 50px 0;
+    line-height: 1.8;
+}
+
+.temple-page .temple-description {
+    margin: 40px 0;
+    line-height: 1.6;
+    font-style: italic;
+    color: white;
+}
+
+.temple-page .navigation-buttons {
+    margin-top: 60px;
+}
+
+.temple-page .navigation-buttons a {
+    display: inline-block;
+    margin: 0 20px 15px 20px;
+    padding: 10px 0;
+}
+
+/* 亭页面漂浮的shining.gif元素 */
+.temple-shining {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-image: url('shining.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.8;
+    animation: temple-shining-float 8s ease-in-out infinite;
+}
+
+@keyframes temple-shining-float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translateY(-20px) rotate(90deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-10px) rotate(180deg);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translateY(-30px) rotate(270deg);
+        opacity: 0.9;
+    }
+}
+
+@keyframes temple-border-glow {
+    0%, 100% { 
+        opacity: 0.6;
+    }
+    50% { 
+        opacity: 1;
+    }
+}
+
+/* ========== 夜空页面特殊样式 ========== */
+/* 夜空页面漂浮的shining.gif元素 */
+.night-sky-shining {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-image: url('shining.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.8;
+    animation: night-sky-shining-float 20s ease-in-out infinite;
+}
+
+/* 夜空页面漂浮的shining2.gif元素 */
+.night-sky-shining2 {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-image: url('shining2.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.8;
+    animation: night-sky-shining2-float 20s ease-in-out infinite;
+}
+
+@keyframes night-sky-shining-float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translateY(-20px) rotate(90deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-10px) rotate(180deg);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translateY(-30px) rotate(270deg);
+        opacity: 0.9;
+    }
+}
+
+@keyframes night-sky-shining2-float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.4;
+    }
+    25% {
+        transform: translateY(-25px) rotate(-90deg);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-15px) rotate(-180deg);
+        opacity: 0.6;
+    }
+    75% {
+        transform: translateY(-35px) rotate(-270deg);
+        opacity: 0.8;
+    }
 }

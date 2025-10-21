@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试shining.gif</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .test-shining {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background-image: url('shining.gif');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>测试shining.gif显示</h1>
+    <p>如果能看到红色边框的shining.gif，说明文件路径正确</p>
+    
+    <script>
+        // 创建测试元素
+        for (let i = 0; i < 5; i++) {
+            const element = document.createElement('div');
+            element.className = 'test-shining';
+            element.style.left = (i * 100 + 50) + 'px';
+            element.style.top = '100px';
+            document.body.appendChild(element);
+        }
+    </script>
+</body>
+</html>
