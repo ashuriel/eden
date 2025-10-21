@@ -1,0 +1,687 @@
+/* 统一的基础样式 */
+html, body {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-family: "Noto Serif SC", serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+/* 内容容器样式 */
+.content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* 标题样式 */
+h1 {
+    color: rgb(199, 228, 242);
+    text-align: center;
+}
+
+h2, h3 {
+    color: rgb(182, 224, 246);
+}
+
+/* 段落样式 */
+p {
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* 链接样式 */
+a {
+    color: rgb(199, 228, 242);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+}
+
+/* 水平线样式 */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgb(199, 228, 242), transparent);
+    margin: 30px 0;
+}
+
+/* 表格样式 */
+table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+}
+
+th, td {
+    border: 1px solid rgb(199, 228, 242);
+    padding: 15px;
+    text-align: center;
+}
+
+th {
+    background-color: rgba(199, 228, 242, 0.1);
+    color: rgb(199, 228, 242);
+}
+
+/* 视频样式 */
+video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* 图片样式 */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* 按钮样式 */
+button {
+    background-color: rgba(199, 228, 242, 0.2);
+    color: white;
+    border: 1px solid rgb(199, 228, 242);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Noto Serif SC", serif;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: rgba(199, 228, 242, 0.3);
+    transform: translateY(-2px);
+}
+
+/* 输入框样式 */
+input {
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid rgb(199, 228, 242);
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #1a1a1a;
+    color: white;
+    font-family: "Noto Serif SC", serif;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(199, 228, 242, 0.4);
+}
+
+/* 输入区域样式 */
+.input-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/* 列表样式 */
+ul, ol {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+li {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .content {
+        padding: 40px 15px;
+    }
+    
+    input {
+        width: 250px;
+    }
+    
+    table {
+        font-size: 14px;
+    }
+    
+    th, td {
+        padding: 10px;
+    }
+}
+
+/* ========== 主页特殊样式 ========== */
+/* 星空容器 */
+.stars {
+    position: fixed;
+    color: #888;
+    font-family: monospace;
+    pointer-events: none;
+    will-change: transform, opacity;
+    animation: 
+        twinkle 3s infinite ease-in-out,
+        drift linear infinite;
+}
+
+/* 闪烁动画 */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.9; }
+}
+
+/* 漂移动画 */
+@keyframes drift {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(var(--drift-x, 50px), var(--drift-y, 50px)); }
+}
+
+/* ========== 花园页面特殊样式 ========== */
+/* 花园元素容器 */
+.garden-elements {
+    position: fixed;
+    color: #888;
+    font-family: monospace;
+    pointer-events: none;
+    will-change: transform, opacity;
+    animation: 
+        float 4s infinite ease-in-out,
+        sway linear infinite;
+}
+
+/* 浮动动画 */
+@keyframes float {
+    0%, 100% { opacity: 0.4; transform: translateY(0px); }
+    50% { opacity: 0.8; transform: translateY(-10px); }
+}
+
+/* 摇摆动画 */
+@keyframes sway {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(var(--sway-x, 20px), var(--sway-y, 10px)) rotate(2deg); }
+    50% { transform: translate(var(--sway-x, -15px), var(--sway-y, -5px)) rotate(-1deg); }
+    75% { transform: translate(var(--sway-x, 10px), var(--sway-y, 15px)) rotate(1deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* 花瓣飘落效果 */
+.petals {
+    position: fixed;
+    color: #ccc;
+    font-family: monospace;
+    pointer-events: none;
+    will-change: transform, opacity;
+    animation: 
+        fall 8s infinite linear,
+        twirl 3s infinite ease-in-out;
+}
+
+@keyframes fall {
+    0% { 
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% { 
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.2;
+    }
+}
+
+@keyframes twirl {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+}
+
+/* ========== 花园页面特殊样式 ========== */
+/* 花园页面光辉效果 */
+.garden-page::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0.15) 8%,
+        rgba(255, 255, 255, 0.08) 15%,
+        transparent 20%,
+        transparent 80%,
+        rgba(255, 255, 255, 0.08) 85%,
+        rgba(255, 255, 255, 0.15) 92%,
+        rgba(255, 255, 255, 0.25) 100%);
+    z-index: 1;
+    pointer-events: none;
+    animation: visible-glow 3s ease-in-out infinite;
+}
+
+@keyframes visible-glow {
+    0%, 100% { 
+        opacity: 0.6;
+        transform: scaleY(1);
+    }
+    50% { 
+        opacity: 0.9;
+        transform: scaleY(1.03);
+    }
+}
+
+/* ========== 门页面特殊样式 ========== */
+/* 门页面背景动画 */
+.door-page::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px, 80px 80px;
+    background-position: 0 0, 25px 25px;
+
+    opacity: 0.1;
+    z-index: 0;
+    pointer-events: none;
+    animation: door-twinkle 10s linear infinite;
+}
+
+@keyframes door-twinkle {
+    0% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.1; }
+}
+
+/* ========== 坠页面特殊样式 ========== */
+/* 坠页面中心发光效果 - 使用图片 */
+.fall-page::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    
+    background-image: url('../glow_effct.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    z-index: 0;
+    pointer-events: none;
+    animation: image-glow-breathing 8s ease-in-out infinite, slow-rotation 150s linear infinite;
+}
+
+@keyframes image-glow-breathing {
+    0%, 100% { 
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% { 
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+@keyframes slow-rotation {
+    0% { 
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% { 
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* 坠页面边框光辉效果 */
+.fall-page::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.06) 8%,
+        rgba(255, 255, 255, 0.03) 15%,
+        transparent 20%,
+        transparent 80%,
+        rgba(255, 255, 255, 0.03) 85%,
+        rgba(255, 255, 255, 0.06) 92%,
+        rgba(255, 255, 255, 0.12) 100%);
+    z-index: 1;
+    pointer-events: none;
+    animation: fall-border-glow 6s ease-in-out infinite;
+}
+
+@keyframes fall-border-glow {
+    0%, 100% { 
+        opacity: 0.5;
+    }
+    50% { 
+        opacity: 0.8;
+    }
+}
+
+/* ========== 梦页面特殊样式 ========== */
+/* 梦页面星空背景 */
+.dream-page {
+    position: relative;
+    overflow: hidden;
+}
+
+.dream-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.dream-star {
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    opacity: 0.8;
+    animation: dream-twinkle 3s ease-in-out infinite;
+    user-select: none;
+}
+
+.dream-star.bright {
+    font-size: 16px;
+    opacity: 1;
+    animation: dream-twinkle 2s ease-in-out infinite;
+}
+
+.dream-star.dim {
+    font-size: 8px;
+    opacity: 0.4;
+    animation: dream-twinkle 4s ease-in-out infinite;
+}
+
+@keyframes dream-twinkle {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.dream-star.dim {
+    animation: dream-dim-twinkle 4s ease-in-out infinite;
+}
+
+@keyframes dream-dim-twinkle {
+    0%, 100% { 
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+/* 梦页面下半部分背景图片 */
+.dream-page::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 40%;
+    background-image: url('../kids.png');
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* 导航按钮样式 */
+.navigation-buttons a {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+/* ========== 花园2页面特殊样式 ========== */
+/* 花园2页面使用门页面的呼吸灯设计 */
+.garden2-page::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px, 80px 80px;
+    background-position: 0 0, 25px 25px;
+    opacity: 0.1;
+    z-index: 0;
+    pointer-events: none;
+    animation: garden2-twinkle 10s linear infinite;
+}
+
+@keyframes garden2-twinkle {
+    0% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.1; }
+}
+
+/* ========== 废墟页面特殊样式 ========== */
+/* 废墟页面背景 - 纯色背景，无边框 */
+.ruin-page {
+    background: rgba(0, 0, 0, 0.95);
+    min-height: 100vh;
+}
+
+/* 废墟页面漂浮字符 */
+.ruin-floating-chars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ruin-char {
+    position: absolute;
+    color: rgba(200, 200, 200, 0.6);
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    animation: ruin-float 8s linear infinite;
+    pointer-events: none;
+}
+
+.ruin-char.large {
+    font-size: 24px;
+    color: rgba(220, 220, 220, 0.7);
+}
+
+.ruin-char.medium {
+    font-size: 18px;
+    color: rgba(200, 200, 200, 0.6);
+}
+
+.ruin-char.small {
+    font-size: 12px;
+    color: rgba(180, 180, 180, 0.5);
+}
+
+@keyframes ruin-float {
+    0% {
+        transform: translateY(100vh) translateX(0px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(50px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* ========== 纸条页面特殊样式 ========== */
+/* 纸条页面背景效果 */
+.paper-page::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center,
+        rgba(255, 255, 255, 0.02) 0%,
+        transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+    animation: paper-glow 8s ease-in-out infinite;
+}
+
+@keyframes paper-glow {
+    0%, 100% { 
+        opacity: 0.3;
+    }
+    50% { 
+        opacity: 0.6;
+    }
+}
+
+/* ========== 海页面特殊样式 ========== */
+/* 海页面呼吸灯背景 */
+.ocean-page {
+    background: 
+        /* 上边框 */
+        linear-gradient(to bottom, rgba(0, 100, 150, 0.15) 0%, rgba(0, 100, 150, 0.05) 12%, transparent 20%),
+        /* 下边框 */
+        linear-gradient(to top, rgba(0, 80, 120, 0.15) 0%, rgba(0, 80, 120, 0.05) 12%, transparent 20%),
+        /* 左边框 */
+        linear-gradient(to right, rgba(0, 60, 100, 0.15) 0%, rgba(0, 60, 100, 0.05) 12%, transparent 20%),
+        /* 右边框 */
+        linear-gradient(to left, rgba(0, 100, 150, 0.15) 0%, rgba(0, 100, 150, 0.05) 12%, transparent 20%),
+        /* 基础背景 */
+        rgba(0, 0, 0, 0.95);
+    animation: ocean-breathing 6s ease-in-out infinite;
+    min-height: 100vh;
+}
+
+@keyframes ocean-breathing {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* 海页面漂浮字符 */
+.ocean-floating-chars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ocean-char {
+    position: absolute;
+    color: rgba(150, 200, 255, 0.6);
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    animation: ocean-float 10s linear infinite;
+    pointer-events: none;
+}
+
+.ocean-char.large {
+    font-size: 24px;
+    color: rgba(170, 220, 255, 0.7);
+}
+
+.ocean-char.medium {
+    font-size: 18px;
+    color: rgba(150, 200, 255, 0.6);
+}
+
+.ocean-char.small {
+    font-size: 12px;
+    color: rgba(130, 180, 255, 0.5);
+}
+
+@keyframes ocean-float {
+    0% {
+        transform: translateY(100vh) translateX(0px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(50px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ========== 废墟2页面特殊样式 ========== */
+/* 废墟2页面使用门页面的呼吸灯设计 */
+.ruin2-page::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px, 80px 80px;
+    background-position: 0 0, 25px 25px;
+    opacity: 0.1;
+    z-index: 0;
+    pointer-events: none;
+    animation: ruin2-twinkle 10s linear infinite;
+}
+
+@keyframes ruin2-twinkle {
+    0% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.1; }
+}
