@@ -853,3 +853,279 @@ li {
         opacity: 0.8;
     }
 }
+
+/* ========== 陶罐页面特殊样式 ========== */
+.treasure-page {
+    background-color: rgb(0, 0, 0);
+}
+
+.treasure-page h1 {
+    color: rgb(199, 228, 242);
+    margin: 40px 0;
+    line-height: 1.8;
+}
+
+.treasure-page hr {
+    background: linear-gradient(90deg, transparent, rgb(199, 228, 242), transparent);
+    height: 1px;
+    border: none;
+    margin: 20px 0;
+}
+
+.treasure-image {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.treasure-image img {
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.treasure-page .navigation-buttons {
+    margin-top: 50px;
+}
+
+.treasure-page .navigation-buttons a {
+    display: inline-block;
+    margin: 0 20px 15px 20px;
+    padding: 10px 0;
+    color: rgb(199, 228, 242);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.treasure-page .navigation-buttons a:hover {
+    color: white;
+}
+
+/* ========== 陶罐2页面特殊样式 ========== */
+.treasure2-page {
+    background-color: rgb(0, 0, 0);
+}
+
+.treasure2-page h1 {
+    color: rgb(199, 228, 242);
+    margin: 40px 0;
+    line-height: 1.8;
+}
+
+.treasure2-page hr {
+    background: linear-gradient(90deg, transparent, rgb(199, 228, 242), transparent);
+    height: 1px;
+    border: none;
+    margin: 20px 0;
+}
+
+.treasure2-page .description {
+    margin: 40px 0;
+    line-height: 1.8;
+}
+
+.treasure2-page .letter-content {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(199, 228, 242, 0.2);
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(199, 228, 242, 0.8);
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.treasure2-page .navigation-buttons {
+    margin-top: 50px;
+}
+
+.treasure2-page .navigation-buttons a {
+    display: inline-block;
+    margin: 0 20px 15px 20px;
+    padding: 10px 0;
+    color: rgb(199, 228, 242);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.treasure2-page .navigation-buttons a:hover {
+    color: white;
+}
+
+/* ========== 烛台页面特殊样式 ========== */
+.light-page {
+    background-color: rgb(0, 0, 0);
+}
+
+.light-page h1 {
+    color: rgb(199, 228, 242);
+    margin: 40px 0;
+    line-height: 1.8;
+}
+
+.light-page hr {
+    background: linear-gradient(90deg, transparent, rgb(199, 228, 242), transparent);
+    height: 1px;
+    border: none;
+    margin: 20px 0;
+}
+
+.light-page .description {
+    margin: 40px 0;
+    line-height: 1.8;
+}
+
+.light-page .inscription-content {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(199, 228, 242, 0.2);
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(199, 228, 242, 0.9);
+    text-align: center;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+}
+
+.light-page .navigation-buttons {
+    margin-top: 50px;
+}
+
+.light-page .navigation-buttons a {
+    display: inline-block;
+    margin: 0 20px 15px 20px;
+    padding: 10px 0;
+    color: rgb(199, 228, 242);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.light-page .navigation-buttons a:hover {
+    color: white;
+}
+
+/* ========== 戒指页面特殊样式 ========== */
+.ring-page {
+    background-color: rgb(0, 0, 0);
+}
+
+.ring-page h1 {
+    color: rgb(199, 228, 242);
+    margin: 40px 0;
+    line-height: 1.8;
+}
+
+.ring-page hr {
+    background: linear-gradient(90deg, transparent, rgb(199, 228, 242), transparent);
+    height: 1px;
+    border: none;
+    margin: 20px 0;
+}
+
+.ring-page .description {
+    margin: 40px 0;
+    line-height: 1.8;
+}
+
+.ring-page .inscription-content {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(199, 228, 242, 0.2);
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(199, 228, 242, 0.9);
+    text-align: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+}
+
+.ring-page .navigation-buttons {
+    margin-top: 50px;
+}
+
+.ring-page .navigation-buttons a {
+    display: inline-block;
+    margin: 0 20px 15px 20px;
+    padding: 10px 0;
+    color: rgb(199, 228, 242);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.ring-page .navigation-buttons a:hover {
+    color: white;
+}
+
+/* ========== 怀表页面特殊样式 ========== */
+.clock-page {
+    background-color: rgb(0, 0, 0);
+}
+
+.clock-page h1 {
+    color: rgb(199, 228, 242);
+    margin: 40px 0;
+    line-height: 1.8;
+}
+
+.clock-page hr {
+    background: linear-gradient(90deg, transparent, rgb(199, 228, 242), transparent);
+    height: 1px;
+    border: none;
+    margin: 20px 0;
+}
+
+.clock-page .description {
+    margin: 40px 0;
+    line-height: 1.8;
+}
+
+.clock-page .inscription-content {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(199, 228, 242, 0.2);
+    font-family: "Courier New", monospace;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(199, 228, 242, 0.9);
+    text-align: center;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+
+.clock-page .navigation-buttons {
+    margin-top: 50px;
+}
+
+.clock-page .navigation-buttons a {
+    display: inline-block;
+    margin: 0 20px 15px 20px;
+    padding: 10px 0;
+    color: rgb(199, 228, 242);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.clock-page .navigation-buttons a:hover {
+    color: white;
+}
