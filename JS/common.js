@@ -166,6 +166,8 @@ function initializePage() {
         // 海页面 - 添加海页面类并创建漂浮字符
         document.body.classList.add('ocean-page');
         createOceanFloatingChars();
+        // 添加标题点击计数功能
+        setupOceanTitleClick();
     } else if (currentPage === 'ruin2.html') {
         // 废墟2页面 - 添加废墟2页面类
         document.body.classList.add('ruin2-page');
@@ -178,6 +180,8 @@ function initializePage() {
         document.body.classList.add('night-sky-page');
         createNightSkyShining();
         createNightSkyShining2();
+        // 20秒后显示eye.gif
+        setTimeout(showNightSkyEye, 20000);
     }
     // 其他页面不需要特殊动画
 }
@@ -453,6 +457,75 @@ function createNightSkyShining2() {
         console.log('Added night sky shining2 element', i + 1); // 调试信息
     }
     console.log('Night sky shining2 elements created:', count); // 调试信息
+}
+
+// ========== 夜空页面eye.gif显示功能 ==========
+function showNightSkyEye() {
+    console.log('Showing night sky eye after 20 seconds...'); // 调试信息
+    
+    // 创建eye.gif链接元素
+    const eyeLink = document.createElement('a');
+    eyeLink.href = 'lost_soul.html';
+    eyeLink.className = 'night-sky-eye';
+    
+    // 创建img元素
+    const eyeImg = document.createElement('img');
+    eyeImg.src = 'eye.gif';
+    eyeImg.alt = 'Eye';
+    
+    // 将img添加到链接中
+    eyeLink.appendChild(eyeImg);
+    
+    // 添加到页面
+    document.body.appendChild(eyeLink);
+    
+    // 延迟显示，添加淡入效果
+    setTimeout(() => {
+        eyeLink.classList.add('show');
+    }, 100);
+    
+    console.log('Night sky eye element created and shown'); // 调试信息
+}
+
+// ========== 海页面标题点击功能 ==========
+function setupOceanTitleClick() {
+    console.log('Setting up ocean title click counter...'); // 调试信息
+    
+    const oceanTitle = document.getElementById('ocean-title');
+    let clickCount = 0;
+    const requiredClicks = 10;
+    
+    if (oceanTitle) {
+        oceanTitle.addEventListener('click', function() {
+            clickCount++;
+            console.log('Ocean title clicked:', clickCount, 'times'); // 调试信息
+            
+            // 添加点击效果
+            oceanTitle.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                oceanTitle.style.transform = 'scale(1)';
+            }, 100);
+            
+            // 如果达到10次点击，导航到the_ocean.html
+            if (clickCount >= requiredClicks) {
+                console.log('Navigating to the_ocean.html after', requiredClicks, 'clicks'); // 调试信息
+                window.location.href = 'the_ocean.html';
+            }
+        });
+        
+        // 添加悬停效果
+        oceanTitle.addEventListener('mouseenter', function() {
+            oceanTitle.style.opacity = '0.8';
+        });
+        
+        oceanTitle.addEventListener('mouseleave', function() {
+            oceanTitle.style.opacity = '1';
+        });
+        
+        console.log('Ocean title click counter setup complete'); // 调试信息
+    } else {
+        console.log('Ocean title element not found'); // 调试信息
+    }
 }
 
 // 页面加载完成后初始化

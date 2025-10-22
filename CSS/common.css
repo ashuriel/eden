@@ -1129,3 +1129,152 @@ li {
 .clock-page .navigation-buttons a:hover {
     color: white;
 }
+
+/* 看星星页面视频样式 */
+.night-sky-page video {
+    max-width: 60%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* 看星星页面eye.gif样式 */
+.night-sky-eye {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.night-sky-eye.show {
+    opacity: 1;
+}
+
+.night-sky-eye img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ========== 迷失的灵魂页面特殊样式 ========== */
+.lost-soul-page {
+    background-color: rgb(0, 0, 0);
+}
+
+.lost-soul-page h1 {
+    color: rgb(199, 228, 242);
+    margin: 40px 0;
+    line-height: 1.8;
+}
+
+.lost-soul-page hr {
+    background: linear-gradient(90deg, transparent, rgb(199, 228, 242), transparent);
+    height: 1px;
+    border: none;
+    margin: 20px 0;
+}
+
+.lost-soul-page .description {
+    margin: 40px 0;
+    line-height: 1.8;
+}
+
+.lost-soul-page .navigation-buttons {
+    margin-top: 50px;
+}
+
+.lost-soul-page .navigation-buttons a {
+    display: inline-block;
+    margin: 0 20px 15px 20px;
+    padding: 10px 0;
+    color: rgb(199, 228, 242);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.lost-soul-page .navigation-buttons a:hover {
+    color: white;
+}
+
+/* 海页面标题点击效果 */
+#ocean-title {
+    transition: transform 0.1s ease, opacity 0.3s ease;
+}
+
+/* ========== 深海页面特殊样式 ========== */
+.the-ocean-page {
+    background-color: rgb(0, 0, 0);
+    position: relative;
+}
+
+.the-ocean-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, rgba(0, 100, 200, 0.15) 0%, transparent 2%, transparent 98%, rgba(0, 100, 200, 0.15) 100%),
+        linear-gradient(0deg, rgba(0, 100, 200, 0.15) 0%, transparent 2%, transparent 98%, rgba(0, 100, 200, 0.15) 100%);
+    pointer-events: none;
+    z-index: 1;
+    animation: the-ocean-border-glow 4s ease-in-out infinite;
+}
+
+@keyframes the-ocean-border-glow {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.the-ocean-page h1 {
+    color: rgb(199, 228, 242);
+    margin: 40px 0;
+    line-height: 1.8;
+    position: relative;
+    z-index: 2;
+}
+
+.the-ocean-page hr {
+    background: linear-gradient(90deg, transparent, rgb(199, 228, 242), transparent);
+    height: 1px;
+    border: none;
+    margin: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.the-ocean-page .description {
+    margin: 40px 0;
+    line-height: 1.8;
+    position: relative;
+    z-index: 2;
+}
+
+.the-ocean-page .navigation-buttons {
+    margin-top: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.the-ocean-page .navigation-buttons a {
+    display: inline-block;
+    margin: 0 20px 15px 20px;
+    padding: 10px 0;
+    color: rgb(199, 228, 242);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.the-ocean-page .navigation-buttons a:hover {
+    color: white;
+}
