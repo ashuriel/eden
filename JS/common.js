@@ -148,6 +148,19 @@ function initializePage() {
     } else if (currentPage === 'page2.html') {
         // 坠页面 - 添加坠页面类
         document.body.classList.add('fall-page');
+    } else if (currentPage === 'dream.html') {
+        // 梦的长廊页面 - 添加梦的长廊页面类
+        document.body.classList.add('dream-page-new');
+        // 添加隐藏地狱链接的点击功能
+        setupHellLinkClick();
+    } else if (currentPage === 'rain.html') {
+        // 雨页面 - 添加雨页面类并创建雨滴效果
+        document.body.classList.add('rain-page');
+        createRainDrops();
+    } else if (currentPage === 'hell.html') {
+        // 地狱页面 - 添加地狱页面类并创建eye2.gif背景
+        document.body.classList.add('hell-page');
+        createHellEyeBackground();
     } else if (currentPage === 'Another/page3.html') {
         // 梦页面 - 添加梦页面类并创建星空
         document.body.classList.add('dream-page');
@@ -526,6 +539,141 @@ function setupOceanTitleClick() {
     } else {
         console.log('Ocean title element not found'); // 调试信息
     }
+}
+
+// ========== 雨页面雨滴效果 ==========
+function createRainDrops() {
+    console.log('Creating rain drops...'); // 调试信息
+    
+    const rainContainer = document.createElement('div');
+    rainContainer.className = 'rain-drops';
+    document.body.appendChild(rainContainer);
+    
+    const rainCounts = {
+        fast: 80,    // 快速雨滴
+        medium: 120, // 中等雨滴
+        slow: 100    // 慢速雨滴
+    };
+    
+    // 创建快速雨滴
+    for (let i = 0; i < rainCounts.fast; i++) {
+        createRainDrop(rainContainer, 'fast');
+    }
+    
+    // 创建中等雨滴
+    for (let i = 0; i < rainCounts.medium; i++) {
+        createRainDrop(rainContainer, 'medium');
+    }
+    
+    // 创建慢速雨滴
+    for (let i = 0; i < rainCounts.slow; i++) {
+        createRainDrop(rainContainer, 'slow');
+    }
+    
+    console.log('Rain drops created:', rainCounts.fast + rainCounts.medium + rainCounts.slow); // 调试信息
+}
+
+// 创建单个雨滴
+function createRainDrop(container, speed) {
+    const rainDrop = document.createElement('div');
+    rainDrop.className = `rain-drop ${speed}`;
+    rainDrop.textContent = 'I';
+    
+    // 随机水平位置
+    rainDrop.style.left = Math.random() * 100 + '%';
+    
+    // 随机动画延迟
+    rainDrop.style.animationDelay = Math.random() * 3 + 's';
+    
+    container.appendChild(rainDrop);
+}
+
+// ========== 梦的长廊隐藏地狱链接功能 ==========
+function setupHellLinkClick() {
+    console.log('Setting up hell link click counter...'); // 调试信息
+    
+    const hellLink = document.getElementById('hell-link');
+    let clickCount = 0;
+    const requiredClicks = 5;
+    
+    if (hellLink) {
+        hellLink.addEventListener('click', function(e) {
+            e.preventDefault(); // 阻止默认跳转
+            
+            clickCount++;
+            console.log('Hell link clicked:', clickCount, 'times'); // 调试信息
+            
+            // 计算透明度（每次点击增加20%）
+            const opacity = clickCount * 0.2;
+            hellLink.style.opacity = opacity;
+            hellLink.style.color = `rgba(255, 0, 0, ${opacity})`; // 红色文字
+            
+            // 如果达到5次点击，允许跳转
+            if (clickCount >= requiredClicks) {
+                console.log('Navigating to hell.html after', requiredClicks, 'clicks'); // 调试信息
+                window.location.href = 'hell.html';
+            }
+        });
+        
+        console.log('Hell link click counter setup complete'); // 调试信息
+    } else {
+        console.log('Hell link element not found'); // 调试信息
+    }
+}
+
+// ========== 地狱页面eye2.gif背景效果 ==========
+function createHellEyeBackground() {
+    console.log('Creating hell eye background...'); // 调试信息
+    
+    // 确保body可以滚动
+    document.body.style.overflow = 'auto';
+    document.body.style.overflowY = 'scroll';
+    document.documentElement.style.overflow = 'auto';
+    document.documentElement.style.overflowY = 'scroll';
+    document.body.style.height = 'auto';
+    document.documentElement.style.height = 'auto';
+    
+    const eyeContainer = document.createElement('div');
+    eyeContainer.className = 'hell-eyes';
+    eyeContainer.style.position = 'fixed';
+    eyeContainer.style.top = '0';
+    eyeContainer.style.left = '0';
+    eyeContainer.style.width = '100%';
+    eyeContainer.style.height = '100%';
+    eyeContainer.style.zIndex = '0';
+    eyeContainer.style.pointerEvents = 'none';
+    
+    document.body.appendChild(eyeContainer);
+    
+    // 计算屏幕需要多少个eye2.gif
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const eyeSize = 80;
+    const cols = Math.ceil(screenWidth / eyeSize) + 2;
+    const rows = Math.ceil(screenHeight / eyeSize) + 2;
+    
+    console.log('Screen size:', screenWidth, 'x', screenHeight);
+    console.log('Creating', cols * rows, 'eye elements');
+    
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+            const eye = document.createElement('div');
+            eye.style.position = 'absolute';
+            eye.style.left = (col * eyeSize) + 'px';
+            eye.style.top = (row * eyeSize) + 'px';
+            eye.style.width = eyeSize + 'px';
+            eye.style.height = eyeSize + 'px';
+            eye.style.backgroundImage = "url('eye2.gif')";
+            eye.style.backgroundSize = 'contain';
+            eye.style.backgroundRepeat = 'no-repeat';
+            eye.style.backgroundPosition = 'center';
+            eye.style.opacity = '0.6';
+            
+            eyeContainer.appendChild(eye);
+        }
+    }
+    
+    console.log('Hell eye background created successfully'); // 调试信息
 }
 
 // 页面加载完成后初始化
